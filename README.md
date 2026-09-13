@@ -49,11 +49,11 @@ Add this repo as a flake input:
         }
       ];
     };
-  };  
+  };
 }
 ```
 
-> Change the system to `aarch64-linux` to match yours.
+> Change `x86_64-linux` to `aarch64-linux` to match yours.
 
 ---
 
