@@ -4,7 +4,6 @@
   makeWrapper,
   fetchurl,
   jdk17,
-  SDL2,
   libGL,
   alsa-lib,
 }:
@@ -24,10 +23,9 @@ stdenv.mkDerivation {
   installPhase = ''
     install -Dm644 "$src" "$out/share/mindustry.jar"
     makeWrapper "${jdk17}/bin/java" "$out/bin/mindustry" \
-      --add-flags "-DSDL2_STATIC -jar \"$out/share/mindustry.jar\"" \
+      --add-flags "-jar \"$out/share/mindustry.jar\"" \
       --prefix LD_LIBRARY_PATH : "${
         lib.makeLibraryPath [
-          SDL2
           libGL
           alsa-lib
         ]
